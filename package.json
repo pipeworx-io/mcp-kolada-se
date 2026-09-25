@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-kolada-se",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kolada (RKA) MCP — Sweden's municipal & regional key-performance-indicator (KPI) database.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-kolada-se": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "kolada-se"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-kolada-se"
+    "url": "git+https://github.com/pipeworx-io/mcp-kolada-se.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-768e2bc538be946462772b118e500e562f136e31d99184f7c58c2c73d8c2525e",
+    "sourceCommit": "adb69d997f82a62e8e22b594488c7d04a227db35"
   }
 }
