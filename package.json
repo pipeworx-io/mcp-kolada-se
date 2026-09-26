@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-kolada-se",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Kolada (RKA) MCP — Sweden's municipal & regional key-performance-indicator (KPI) database.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-768e2bc538be946462772b118e500e562f136e31d99184f7c58c2c73d8c2525e",
-    "sourceCommit": "adb69d997f82a62e8e22b594488c7d04a227db35"
+    "sourceHash": "v1-946f36299d4cf998bfa06957e17cdcc459a3f6bedf526c0182ce9afb14ee3ca0",
+    "sourceCommit": "1064560fd9dcd0d6fc2606298c2ba244b3a1fbeb"
   }
 }

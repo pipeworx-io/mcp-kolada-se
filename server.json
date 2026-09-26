@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/kolada-se",
   "title": "Kolada Se",
   "description": "Kolada (RKA) MCP — Sweden's municipal & regional key-performance-indicator (KPI) database.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://pipeworx.io/packs/kolada-se",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-kolada-se",
