@@ -1,0 +1,82 @@
+[
+  {
+    "name": "search_kpi",
+    "description": "Find Kolada KPI (indicator) ids by title substring (Swedish). Searches ~5,000 indicators covering economy, schools, health, demographics, and personnel. Returns id, title, description, operating_area, and is_divided_by_gender. Use the returned id with get_data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Substring of the indicator title (Swedish), e.g. \"arbetslös\" or \"betyg\"."
+        },
+        "page": {
+          "type": "integer",
+          "description": "Page number, 1-based (default 1)."
+        },
+        "per_page": {
+          "type": "integer",
+          "description": "Results per page (default 30)."
+        }
+      },
+      "required": [
+        "title"
+      ]
+    }
+  },
+  {
+    "name": "list_municipalities",
+    "description": "Find Sweden municipality/region ids by name substring. Returns id, title, and type (\"K\" = municipality of 290, \"L\" = region/landsting of 21). Use the returned id with get_data. Omit title to list all.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Substring of the municipality/region name, e.g. \"Stockholm\" or \"Göteborg\"."
+        }
+      }
+    }
+  },
+  {
+    "name": "get_data",
+    "description": "Fetch numeric KPI values from Kolada for a specific indicator (kpiId), Swedish municipality or region (municipalityId), and year. Returns value rows broken down by gender: T=total, K=women (kvinnor), M=men (män); non-gendered KPIs return only T.municipalityId from list_municipalities. Returns values per gender (\"T\" total, \"K\" women, \"M\" men); non-gendered KPIs report only \"T\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "kpiId": {
+          "type": "string",
+          "description": "KPI id from search_kpi, e.g. \"N15428\"."
+        },
+        "municipalityId": {
+          "type": "string",
+          "description": "Municipality/region id from list_municipalities, e.g. \"0180\" (Stockholm)."
+        },
+        "year": {
+          "type": "integer",
+          "description": "Four-digit year, e.g. 2022."
+        }
+      },
+      "required": [
+        "kpiId",
+        "municipalityId",
+        "year"
+      ]
+    }
+  },
+  {
+    "name": "list_org_units",
+    "description": "Kolada, the Swedish municipal and regional KPI database run by RKA — list the organizational units it tracks (schools, preschools, eldercare facilities) within one of Sweden's 290 municipalities or 21 regions. Returns id, title, municipality. OU ids can be used for unit-level data drilldowns. Filter by title substring and/or municipality id.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Substring of the unit name (Swedish), e.g. \"skola\" or \"förskola\"."
+        },
+        "municipalityId": {
+          "type": "string",
+          "description": "Restrict to a municipality/region id, e.g. \"0180\"."
+        }
+      }
+    }
+  }
+]
